@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": "76b5b985-776c-4db8-9228-f0f2c446964a",
+      "name": "Farinha",
+      "label": "Tio Jorge",
+      "content": "1 kg bag",
+      "date": "2023-06-08T07:36:45.172Z",
+      "up_to": 30
+    },
+    {
+      "id": "9da6969f-1b03-4747-876b-2da038832629",
+      "name": "Refrigerante",
+      "label": "Coca Cola",
+      "content": "2.5 l bottle",
+      "date": "2023-06-08T07:36:45.173Z",
+      "up_to": 7
+    }
+  ]
+}

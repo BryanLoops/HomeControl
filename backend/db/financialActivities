@@ -1,0 +1,22 @@
+{
+  "financialActivities": [
+    {
+      "id": "7b8390b5-0416-431c-98aa-82166688c9b9",
+      "value": 10.5,
+      "description": "Primeira movimentação",
+      "date": "2023-06-08T07:36:45.167Z"
+    },
+    {
+      "id": "9fcf28f1-d8d8-46cd-b94b-57a56b60a180",
+      "value": 7.99,
+      "description": "Segunda movimentação",
+      "date": "2023-06-08T07:36:45.168Z"
+    },
+    {
+      "id": "5c7c27dd-6ca1-44db-8cad-e887540d281d",
+      "value": 7.99,
+      "description": "Segunda movimentação atualizada.",
+      "date": "2023-06-08T07:36:45.169Z"
+    }
+  ]
+}

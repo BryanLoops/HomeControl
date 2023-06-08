@@ -2,13 +2,15 @@ import fs from "fs";
 import DB_FILE_PATH from "../config/config";
 import FinancialActivity from "../models/financialActivity";
 import { v4 as uuid} from "uuid";
+const file_path = `${DB_FILE_PATH}/financialActivities`;
 
 const financialActivityController = {
-    create(valueInput: number, descriptionInput: string): FinancialActivity {
+    create(value: number, description: string): FinancialActivity {
         const financialActivity: FinancialActivity = {
             id: uuid(),
-            value: valueInput, 
-            description: descriptionInput
+            value: value, 
+            description: description,
+            date: new Date().toISOString(),
         };
 
         const financialActivities: Array<FinancialActivity> = [
@@ -16,14 +18,14 @@ const financialActivityController = {
             financialActivity,
         ];
 
-        fs.writeFileSync(DB_FILE_PATH, JSON.stringify({
+        fs.writeFileSync(file_path, JSON.stringify({
             financialActivities,
         }, null, 2));
                 
         return financialActivity;
     },
     read(): Array<FinancialActivity> {
-        const dbString = fs.readFileSync(DB_FILE_PATH, "utf-8");
+        const dbString = fs.readFileSync(file_path, "utf-8");
         const db = JSON.parse(dbString || "{}");
         if(!db.financialActivities) {
             return [];
@@ -40,7 +42,7 @@ const financialActivityController = {
             }
         });
 
-        fs.writeFileSync(DB_FILE_PATH, JSON.stringify({
+        fs.writeFileSync(file_path, JSON.stringify({
             financialActivities,
         }, null, 2));
         
@@ -68,12 +70,12 @@ const financialActivityController = {
             return true;
         });
 
-        fs.writeFileSync(DB_FILE_PATH, JSON.stringify({
+        fs.writeFileSync(file_path, JSON.stringify({
             financialActivities: financialActivitiesWithoutOne,
         }, null, 2));
     },
     CLEAR_DB() {
-        fs.writeFileSync(DB_FILE_PATH, "");
+        fs.writeFileSync(file_path, "");
     }
 }
 

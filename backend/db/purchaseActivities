@@ -1,0 +1,14 @@
+{
+  "purchaseActivities": [
+    {
+      "id": "410563b0-a583-4005-af3b-e4daeecc213d",
+      "value": 7.99,
+      "description": "Caixa de refrigerantes",
+      "date": "2023-06-08T07:36:45.174Z",
+      "product_id": "9da6969f-1b03-4747-876b-2da038832629",
+      "quantity": 8,
+      "purchase_date": "2023-06-08T07:29:18.665Z",
+      "expiration_date": "2023-06-08T07:29:18.665Z"
+    }
+  ]
+}
