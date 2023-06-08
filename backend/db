@@ -1,1 +1,19 @@
-{"financialActivities":[{"id":"e75dcc0b-a0a1-482b-8695-89868ec7d654","value":10.5,"description":"Primeira movimentação"},{"id":"04faa702-12c3-4269-bf0b-928b5ab364b9","value":7.99,"description":"Segunda movimentação"},{"id":"bc169e1a-eb6c-4bcc-8cfc-88af83ad5cfc","value":7.99,"description":"Segunda movimentação atualizada."}]}
+{
+  "financialActivities": [
+    {
+      "id": "bd641cf3-43c7-4349-998c-0fabbfb86a52",
+      "value": 10.5,
+      "description": "Primeira movimentação"
+    },
+    {
+      "id": "62dc38cc-cb39-4bdb-9bb9-9d1be0f1f06f",
+      "value": 7.99,
+      "description": "Segunda movimentação"
+    },
+    {
+      "id": "6fecbf62-fbc6-43b2-b76d-5e6c04b939cf",
+      "value": 7.99,
+      "description": "Segunda movimentação atualizada."
+    }
+  ]
+}

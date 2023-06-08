@@ -30,22 +30,47 @@ const financialActivityController = {
         }
         return db.financialActivities;
     },
-    update(id: string, partialFinancialActivity: Partial<FinancialActivity>) {
+    update(id: string, partialFinancialActivity: Partial<FinancialActivity>): FinancialActivity {
+        let updatedFinancialActivity;
         const financialActivities = this.read();
         financialActivities.forEach((currentFinancialActivity) => {
             const isToUpdate = currentFinancialActivity.id === id;
             if(isToUpdate){
-                Object.assign(currentFinancialActivity, partialFinancialActivity);
+                updatedFinancialActivity = Object.assign(currentFinancialActivity, partialFinancialActivity);
             }
         });
 
         fs.writeFileSync(DB_FILE_PATH, JSON.stringify({
             financialActivities,
-        }));
-        console.log("Movimentações atualizadas", financialActivities);
-    },
-    delete() {
+        }, null, 2));
+        
+        if (!updatedFinancialActivity) {
+            throw new Error("Please provide another ID!");
+        }
 
+        return updatedFinancialActivity;
+    },
+    updateDescriptionById(id: string, description: string): FinancialActivity{
+        return this.update(
+            id,
+            {
+                description,
+            }
+        )
+    },
+    deleteById(id: string) {
+        const financialActivities = this.read();
+
+        const financialActivitiesWithoutOne = financialActivities.filter((financialActivity) => {
+            if(id === financialActivity.id) {
+                return false;
+            }
+            return true;
+        });
+
+        fs.writeFileSync(DB_FILE_PATH, JSON.stringify({
+            financialActivities: financialActivitiesWithoutOne,
+        }, null, 2));
     },
     CLEAR_DB() {
         fs.writeFileSync(DB_FILE_PATH, "");
